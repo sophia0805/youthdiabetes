@@ -1,0 +1,9 @@
+Flask
+Gunicorn
+flask_cors
+pandas
+numpy
+scikit-learn == 1.7.2
+joblib
+openai
+python-dotenv

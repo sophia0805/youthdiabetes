@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>youthdiabetes.ai — Home</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo"><a href="/"><img src="static/image/logo.png" alt="logo" style="width:28px;height:28px"></a></div>
+        <div class="site-title">YouthDiabetes.AI</div> 
+      </div>
+      <nav class="nav">
+        <a href="/" class="active">Home</a>
+        <a href="/risk">Risk</a>
+        <a href="/resources">Resources</a>
+        <a href="/about">About</a>
+      </nav>
+      <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
+    </header>
+
+    <section class="hero">
+      <h1 style="text-align: center; font-size: 24px; margin-bottom: 16px;"> Youth Diabetes Crisis</h1>
+      <p style="text-align: center;">Youth diabetes in the US have increased significantly in the past few decades. According to the CDC, <strong>1 in 3 of teens
+        age 12-17,  total 8.4 million of them have prediabetes </strong> as 2023. Type 2 diabetes cases would increase about <strong>700%</strong> by year 2060. Diabetes affecting more young people than ever before.</p>
+      <div id="counter_text" style="text-align: center; font-size: 28px; margin-top: 16px; color:red">
+        <p font-size: 18px; ><strong>Prediabetes Teens Counting</strong></p>
+      </div>
+      <div id="counter" style="text-align: center; font-size: 48px; margin-top: 16px; color:red">
+       <span id="numberCounter">0</span>
+      </div>
+    </section>
+
+    <section class="hero">
+      <h1 style="text-align: center; font-size: 24px; margin-bottom: 16px;"> Evaluate and Reduce Your Risk Using AI</h1>
+      <p style="text-align: center;">We use machine learning models to predict your risk of developing diabetes, then use Generative AI to provide personalized recommendations.</p>
+      <div id="counter_text" style="text-align: center; font-size: 28px; margin-top: 16px; color:red">
+        <p font-size: 18px; ><strong>Evaluate your risk and Get AI generated recommendations</strong></p>
+        <p style="text-align: center;"><a href="/risk">click here</a></p>
+      </div>
+     </section>
+
+    <p class="footer">© 2026 youthdiabetes.ai — style-only demo</p>
+  </div>
+
+  <!-- mobile drawer -->
+  <div id="drawer" class="drawer" aria-hidden="true">
+    <div class="panel">
+      <a href="/">Home</a>
+      <a href="/risk">Risk</a>
+      <a href="/resources">Resources</a>
+      <a href="/about">About</a>
+      <hr>
+      <p class="small muted">This template keeps the visual style but uses original placeholder content.</p>
+    </div>
+  </div>
+
+  <script src="static/main.js"></script>
+</body>
+</html>
