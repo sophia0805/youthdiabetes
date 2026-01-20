@@ -24,8 +24,9 @@ FRONTEND_DIR = os.path.join(os.path.dirname(BASE_DIR), 'frontend')
 
 app = Flask(__name__, 
             template_folder=os.path.join(FRONTEND_DIR, 'pages'),
-            static_folder=os.path.join(FRONTEND_DIR, 'static'))
-CORS(app, origins=["https://www.youthdiabetes.ai", "https://youthdiabetes-ai.onrender.com", "http://127.0.0.1:5500/pages"])  # Enable CORS for frontend requests
+            static_folder=os.path.join(FRONTEND_DIR, 'static'),
+            static_url_path='/static')
+CORS(app, origins=["https://www.youthdiabetes.ai", "https://youthdiabetes-ai.onrender.com", "http://127.0.0.1:10000"])  # Enable CORS for frontend requests
 
 from sklearn.preprocessing import RobustScaler
 from sklearn import preprocessing
@@ -48,26 +49,38 @@ model1 = None
 # Model file path - check both locations (local and production)
 MODEL_FILE = 'youthdiabetes_logisticL1_scoring_bundle.pkl'
 MODEL_PATH = os.path.join(BASE_DIR, MODEL_FILE)
-PROD_MODEL_PATH = '/var/data/youthdiabetes_logisticL1_scoring_bundle.pkl'
+PROD_MODEL_PATH = 'youthdiabetes_logisticL1_scoring_bundle.pkl'
 
 # Copy model to production location if it doesn't exist and we're in production
+# Only attempt if we have write permissions (production environment)
 if os.path.exists(MODEL_PATH) and not os.path.exists(PROD_MODEL_PATH):
-    os.makedirs('/var/data', exist_ok=True)
-    shutil.copy(MODEL_PATH, PROD_MODEL_PATH)
+    try:
+        os.makedirs('/var/data', exist_ok=True)
+        shutil.copy(MODEL_PATH, PROD_MODEL_PATH)
+        print(f"Model copied to production location: {PROD_MODEL_PATH}")
+    except PermissionError:
+        # Running locally without permissions - use local model file
+        print(f"Running locally - using model from: {MODEL_PATH}")
+    except Exception as e:
+        print(f"Could not copy to production location (using local): {e}")
 
 @app.route('/')
+@app.route('/index.html')
 def home():
  return render_template('index.html')
 
 @app.route('/risk')
+@app.route('/risk.html')
 def report():
  return render_template('risk.html')
 
 @app.route('/resources')
+@app.route('/resources.html')
 def contact():
  return render_template('resources.html')
 
 @app.route('/about')
+@app.route('/about.html')
 def about():
  return render_template('about.html')
 
