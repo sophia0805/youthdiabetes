@@ -18,8 +18,14 @@ load_dotenv()  # Load OPENAI_API_KEY from .env
 from sklearn.linear_model import LogisticRegression
 from sklearn.base import BaseEstimator, TransformerMixin
 
-app = Flask(__name__)
-CORS(app, origins=["https://www.youthdiabetes.ai", "https://youthdiabetes-ai.onrender.com"])  # Enable CORS for frontend requests
+# Get the base directory (backend folder)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIR = os.path.join(os.path.dirname(BASE_DIR), 'frontend')
+
+app = Flask(__name__, 
+            template_folder=os.path.join(FRONTEND_DIR, 'pages'),
+            static_folder=os.path.join(FRONTEND_DIR, 'static'))
+CORS(app, origins=["https://www.youthdiabetes.ai", "https://youthdiabetes-ai.onrender.com", "http://127.0.0.1:5500/pages"])  # Enable CORS for frontend requests
 
 from sklearn.preprocessing import RobustScaler
 from sklearn import preprocessing
@@ -39,8 +45,15 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 model1 = None
 
 
-if not os.path.exists('/var/data/youthdiabetes_logisticL1_scoring_bundle.pkl'):
-        shutil.copy('youthdiabetes_logisticL1_scoring_bundle.pkl', '/var/data/youthdiabetes_logisticL1_scoring_bundle.pkl')
+# Model file path - check both locations (local and production)
+MODEL_FILE = 'youthdiabetes_logisticL1_scoring_bundle.pkl'
+MODEL_PATH = os.path.join(BASE_DIR, MODEL_FILE)
+PROD_MODEL_PATH = '/var/data/youthdiabetes_logisticL1_scoring_bundle.pkl'
+
+# Copy model to production location if it doesn't exist and we're in production
+if os.path.exists(MODEL_PATH) and not os.path.exists(PROD_MODEL_PATH):
+    os.makedirs('/var/data', exist_ok=True)
+    shutil.copy(MODEL_PATH, PROD_MODEL_PATH)
 
 @app.route('/')
 def home():
@@ -316,7 +329,11 @@ sys.modules['__main__'].IQRClipper = IQRClipper
 sys.modules['__main__'].SafeSkewFixer = SafeSkewFixer
 # Then load your model
 
-model1 = load_model('/var/data/youthdiabetes_logisticL1_scoring_bundle.pkl')
+# Load model - try production path first, fallback to local
+if os.path.exists(PROD_MODEL_PATH):
+    model1 = load_model(PROD_MODEL_PATH)
+else:
+    model1 = load_model(MODEL_PATH)
 
 def predict(payload_4groups, prob_threshold=0.5):
     """Load existing machine learning model"""

@@ -1,58 +1,107 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>About — YouthDiabetes.AI</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
   <div class="container">
     <header class="header">
       <div class="brand">
-        <div class="logo"><a href="/"><img src="../static/image/logo.png" alt="logo"></a></div>
+        <div class="logo"><a href="/pages/index.html"><img src="../static/image/logo.png" alt="logo"></a></div>
         <div class="site-title">YouthDiabetes.AI</div>
       </div>
       <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="risk.html">Risk</a>
-        <a href="resources.html">Resources</a>
-        <a href="about.html" class="active">About</a>
+        <a href="./index.html">Home</a>
+        <a href="./risk.html">Risk</a>
+        <a href="./resources.html">Resources</a>
+        <a href="./about.html" class="active">About</a>
       </nav>
       <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
     </header>
 
     <section class="hero">
       <h1>Our Story</h1>
-      <p>Youth diabetes has become a critical public health crisis in the United States. According to the CDC, <strong>1 in 3 teens aged 12-17 (totaling 8.4 million) have prediabetes</strong>, and type 2 diabetes cases are projected to increase by <strong>700% by 2060</strong>.</p>
-      <p>We created YouthDiabetes.AI to address this growing challenge by combining advanced machine learning risk prediction with generative AI-powered personalized recommendations. Our mission is to empower young people and their families with early detection tools and actionable insights to prevent or manage diabetes.</p>
+      <p>YouthDiabetes.AI was created to tackle the growing youth diabetes crisis by making AI-powered health tools
+        accessible to everyone. Our goal is to empower young people and their families with early risk detection and
+        actionable guidance, completely free and available to anyone with internet access.</p>
+      <p>This project combines two powerful AI approaches: <strong>machine learning for risk prediction</strong> and
+        <strong>generative AI for personalized recommendations</strong>, transforming complex health data into an
+        easy-to-understand tool for the public.
+      </p>
     </section>
 
     <section class="hero">
-      <h1>How AI Can Help</h1>
-      <p>Generative AI is reshaping how people live, work, and stay healthy, with notable effects on physical and mental well-being. In healthcare, it can help doctors make better diagnoses, tailor treatments to individual patients, and accelerate drug discovery, potentially improving outcomes and lowering costs for patients and systems alike.</p>
-      <p>Generative AI can also reduce administrative burdens on clinicians, giving them more time for direct care, and enhance access to health information for patients.</p>
-      <p>At the same time, these technologies pose health risks if used improperly. AI can give inaccurate or misleading medical or mental health advice, which may delay necessary professional care and harm outcomes, and suffers from "hallucinations" and bias that affect vulnerable populations. Chatbots used for mental health support might increase access but also raise concerns about empathy, crisis response, and overreliance without clinician oversight.</p>
-      <p><strong>Overall, generative AI can support healthier lives when integrated responsibly</strong> with strong governance, ethical standards, and collaboration with healthcare professionals, ensuring benefits without compromising safety.</p>
+      <h1>Technical Approach</h1>
+      <h2>Machine Learning Risk Prediction</h2>
+      <p>Our prediction model was trained on the most recent comprehensive youth diabetes dataset from Mount Sinai
+        School of Medicine, released in July 2024. This dataset draws from the National Health and Nutrition Examination
+        Survey (NHANES), incorporating health indicators from national surveys spanning 1999-2018 and covering over
+        15,000 individuals aged 12-19.</p>
+      <p>The development process involved extensive data preparation, a hybrid feature selection pipeline that reduced
+        over 100 variables to approximately 30-40 key predictors, and evaluation of multiple algorithms including
+        XGBoost, AdaBoost, Random Forest, and Logistic Regression. All models were assessed using weighted metrics to
+        ensure accuracy across diverse populations.</p>
+
+      <h2>Generative AI Recommendations</h2>
+      <p>Once risk factors are identified, generative AI creates personalized daily meal plans, weekly exercise
+        schedules, and practical lifestyle recommendations tailored specifically to each user's profile. The system is
+        carefully engineered to provide actionable guidance while avoiding specific medical claims.</p>
+      <p>To ensure accuracy, AI outputs were validated using the LLM-as-a-Judge method, where we cross-checked responses
+        across
+        multiple AI systems (ChatGPT, Deepseek, Gemini, Grok) to verify consistency and accuracy for general lifestyle
+        guidance.</p>
+    </section>
+
+    <section class="hero">
+      <h1>Responsible AI in Healthcare</h1>
+      <p>AI is transforming healthcare by enabling better diagnoses, personalized treatments, and improved patient
+        outcomes. However, these technologies require careful implementation. AI can produce inaccurate information and
+        suffers from biases that affect vulnerable populations.</p>
+      <p>YouthDiabetes.AI is designed with responsibility in mind:</p>
+      <ul>
+        <li><strong>Educational focus:</strong> We provide general health guidance, not medical diagnoses</li>
+        <li><strong>Validated outputs:</strong> All AI-generated content is cross-validated for accuracy</li>
+        <li><strong>Complementary care:</strong> We encourage users to work with healthcare professionals</li>
+        <li><strong>Accessible design:</strong> Free and easy to understand for users of all health literacy levels</li>
+      </ul>
+      <p>When integrated responsibly with strong governance and collaboration with healthcare professionals, AI can
+        support healthier lives without compromising safety.</p>
     </section>
 
     <section class="hero">
       <h2>References</h2>
       <p class="small" style="line-height: 1.7;">
-        <a href="https://www.gao.gov/products/gao-24-107634" target="_blank" rel="noopener noreferrer">1. Science & Tech Spotlight: Generative AI in Health Care</a> — U.S. Government Accountability Office<br>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/40510413/" target="_blank" rel="noopener noreferrer">2. Balancing risks and benefits: clinicians' perspectives on the use of generative AI chatbots in mental healthcare</a> — PubMed<br>
-        <a href="https://www.nationalacademies.org/news/2025/04/capturing-the-potential-of-generative-ais-use-in-health-and-medicine-requires-collaboration-and-oversight-consideration-of-risks-says-nam-special-publication" target="_blank" rel="noopener noreferrer">3. Capturing the Potential of Generative AI's Use in Health and Medicine</a> — National Academies of Sciences, Engineering, and Medicine
+        <a href="https://www.cdc.gov/diabetes/data/statistics-report/index.html" target="_blank"
+          rel="noopener noreferrer">1. National Diabetes Statistics Report</a> - CDC<br>
+        <a href="https://zenodo.org/records/8206576" target="_blank" rel="noopener noreferrer">2. Youth preDM/DM
+          Dataset</a> - Mount Sinai School of Medicine<br>
+        <a href="https://www.gao.gov/products/gao-24-107634" target="_blank" rel="noopener noreferrer">3. Science & Tech
+          Spotlight: Generative AI in Health Care</a> - U.S. Government Accountability Office<br>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/40510413/" target="_blank" rel="noopener noreferrer">4. Balancing risks
+          and benefits: clinicians' perspectives on the use of generative AI chatbots in mental healthcare</a> -
+        PubMed<br>
+        <a href="https://www.nationalacademies.org/news/2025/04/capturing-the-potential-of-generative-ais-use-in-health-and-medicine-requires-collaboration-and-oversight-consideration-of-risks-says-nam-special-publication"
+          target="_blank" rel="noopener noreferrer">5. Capturing the Potential of Generative AI's Use in Health and
+          Medicine</a> - National Academies of Sciences, Engineering, and Medicine
       </p>
     </section>
 
     <p class="footer">© 2026 youthdiabetes.ai</p>
   </div>
-  <div id="drawer" class="drawer"><div class="panel">
-    <a href="index.html">Home</a>
-    <a href="risk.html">Risk</a>
-    <a href="resources.html">Resources</a>
-    <a href="about.html">About</a>
-  </div></div>
+  <div id="drawer" class="drawer">
+    <div class="panel">
+      <a href="index.html">Home</a>
+      <a href="risk.html">Risk</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
   <script src="../static/javascript/main.js"></script>
 </body>
+
 </html>
