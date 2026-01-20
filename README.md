@@ -92,18 +92,15 @@ gunicorn app:app --chdir backend --bind 0.0.0.0:$PORT
 - **Deployment:** Render Cloud Application Platform
 
 ## history
-- conceptualized solution to address the youth diabetes crisis affecting 8.4 million American teens with prediabetes
 - identified and acquired the most recent comprehensive youth diabetes dataset from Mount Sinai School of Medicine (released July 2024)
-- developed and trained multiple machine learning models (XGBoost, AdaBoost, Random Forest, Logistic Regression, MLP, Ensemble models)
+- trained multiple machine learning models (XGBoost, AdaBoost, Random Forest, Logistic Regression, MLP, Ensemble models)
 - implemented hybrid feature selection pipeline reducing 100+ variables to 30-40 key predictors
 - selected logistic regression for deployment based on balance of interpretability, computational efficiency, and predictive performance
 - built comprehensive web application integrating ML predictions with generative AI recommendations
 - struggled with slow response times initially due to training models on-demand, solved by deploying pre-trained serialized pickle models
 - integrated OpenAI API for personalized health plan generation
 - validated generative AI outputs using LLM-as-a-Judge cross-validation method across multiple AI systems
-- organized project structure into `frontend/` and `backend/` directories for better code organization
 - fixed Flask static file serving and template rendering issues during reorganization
-- updated design to match production site at youthdiabetes.ai with light purple theme and simplified layout
 - deployed to Render Cloud Application Platform for public access
 
 ## community impact
