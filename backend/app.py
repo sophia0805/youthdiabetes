@@ -26,7 +26,7 @@ app = Flask(__name__,
             template_folder=os.path.join(FRONTEND_DIR, 'pages'),
             static_folder=os.path.join(FRONTEND_DIR, 'static'),
             static_url_path='/static')
-CORS(app, origins=["https://www.youthdiabetes.ai", "https://youthdiabetes-ai.onrender.com", "http://127.0.0.1:10000"])  # Enable CORS for frontend requests
+CORS(app, origins=["https://www.youthdiabetes.ai", "https://youthdiabetes.onrender.com", "http://127.0.0.1:10000"])  # Enable CORS for frontend requests
 
 from sklearn.preprocessing import RobustScaler
 from sklearn import preprocessing
