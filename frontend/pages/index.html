@@ -1,165 +1,63 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>youthdiabetes.ai — Home</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 <body>
   <div class="container">
     <header class="header">
       <div class="brand">
-        <div class="logo"><a href="/pages/index.html"><img src="../static/image/logo.png" alt="logo"></a></div>
-        <div class="site-title">YouthDiabetes.AI</div>
+        <div class="logo"><a href="/"><img src="static/image/logo.png" alt="logo" style="width:28px;height:28px"></a></div>
+        <div class="site-title">YouthDiabetes.AI</div> 
       </div>
       <nav class="nav">
-        <a href="./index.html" class="active">Home</a>
-        <a href="./risk.html">Risk</a>
-        <a href="./resources.html">Resources</a>
-        <a href="./about.html">About</a>
+        <a href="/" class="active">Home</a>
+        <a href="/risk">Risk</a>
+        <a href="/resources">Resources</a>
+        <a href="/about">About</a>
       </nav>
       <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
     </header>
 
-    <section class="hero fade-in">
-      <h1 style="text-align: center; margin-bottom: 1.5rem;">Youth Diabetes Crisis</h1>
-      <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.125rem; line-height: 1.8;">
-        Youth diabetes in the United States has increased significantly over the past few decades. 
-        According to the CDC, <strong>1 in 3 teens aged 12-17—totaling 8.4 million young people—have prediabetes</strong> as of 2023. 
-        Type 2 diabetes cases are projected to increase by approximately <strong>700%</strong> by the year 2060, 
-        affecting more young people than ever before.
-      </p>
-      <div style="text-align: center; margin-top: 2.5rem;">
-        <p style="font-size: 0.9375rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 1rem; font-weight: 600;">Prediabetes Cases in Youth</p>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 700; color: var(--accent); line-height: 1;">
-          <span id="numberCounter">0</span>
-        </div>
-        <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.5rem;">teens with prediabetes (ages 12-17)</p>
+    <section class="hero">
+      <h1 style="text-align: center; font-size: 24px; margin-bottom: 16px;"> Youth Diabetes Crisis</h1>
+      <p style="text-align: center;">Youth diabetes in the US have increased significantly in the past few decades. According to the CDC, <strong>1 in 3 of teens
+        age 12-17,  total 8.4 million of them have prediabetes </strong> as 2023. Type 2 diabetes cases would increase about <strong>700%</strong> by year 2060. Diabetes affecting more young people than ever before.</p>
+      <div id="counter_text" style="text-align: center; font-size: 28px; margin-top: 16px; color:red">
+        <p font-size: 18px; ><strong>Prediabetes Teens Counting</strong></p>
+      </div>
+      <div id="counter" style="text-align: center; font-size: 48px; margin-top: 16px; color:red">
+       <span id="numberCounter">0</span>
       </div>
     </section>
 
-    <!-- Statistics Dashboard -->
-    <section class="hero fade-in">
-      <h2 style="text-align: center; margin-bottom: 1rem;">Understanding the Numbers</h2>
-      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Key statistics highlighting the importance of early risk assessment and prevention
-      </p>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-icon"></div>
-          <div class="stat-value" data-target="33">0</div>
-          <div class="stat-label">Percent of Teens with Prediabetes</div>
-          <div class="stat-description">1 in 3 teens aged 12-17 have prediabetes as of 2023</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon"></div>
-          <div class="stat-value" data-target="700">0</div>
-          <div class="stat-label">Expected Increase by 2060</div>
-          <div class="stat-description">Type 2 diabetes cases projected to increase significantly</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon"></div>
-          <div class="stat-value" data-target="95">0</div>
-          <div class="stat-label">Model Accuracy</div>
-          <div class="stat-description">Machine learning risk prediction precision rate</div>
-        </div>
+    <section class="hero">
+      <h1 style="text-align: center; font-size: 24px; margin-bottom: 16px;"> Evaluate and Reduce Your Risk Using AI</h1>
+      <p style="text-align: center;">We use machine learning models to predict your risk of developing diabetes, then use Generative AI to provide personalized recommendations.</p>
+      <div id="counter_text" style="text-align: center; font-size: 28px; margin-top: 16px; color:red">
+        <p font-size: 18px; ><strong>Evaluate your risk and Get AI generated recommendations</strong></p>
+        <p style="text-align: center;"><a href="/risk">click here</a></p>
       </div>
-    </section>
+     </section>
 
-    <!-- Interactive Features Section -->
-    <section class="hero fade-in">
-      <h2 style="text-align: center; margin-bottom: 1.5rem;">Evaluate and Reduce Your Risk Using AI</h2>
-      <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; font-size: 1.0625rem; line-height: 1.8; color: var(--text-secondary);">
-        Our platform combines advanced machine learning models to predict diabetes risk with 
-        generative AI to provide personalized, actionable recommendations tailored to your health profile.
-      </p>
-      
-      <div class="feature-cards">
-        <div class="feature-card">
-          <div class="feature-icon"></div>
-          <h3>Machine Learning Risk Assessment</h3>
-          <p>Trained on comprehensive youth diabetes data from Mount Sinai School of Medicine (2024), our models provide accurate risk predictions based on validated research.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"></div>
-          <h3>Personalized AI Recommendations</h3>
-          <p>Receive tailored diet and exercise plans generated by AI based on your specific risk factors and individual health profile.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"></div>
-          <h3>Privacy & Security</h3>
-          <p>Your information is never stored. All evaluations are processed anonymously with no data retention or sharing.</p>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border);">
-        <p style="font-size: 1.125rem; margin-bottom: 1.5rem; color: var(--text-secondary);">Ready to evaluate your risk?</p>
-        <a href="./risk.html" class="btn-primary" style="display: inline-block; padding: 0.875rem 2rem; font-size: 1rem;">Start Risk Assessment</a>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="hero fade-in">
-      <h2 style="text-align: center; margin-bottom: 1rem;">Frequently Asked Questions</h2>
-      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Common questions about our risk assessment tool and AI-powered recommendations
-      </p>
-      <div class="faq-container">
-        <div class="faq-item">
-          <button class="faq-question">
-            How accurate is the risk prediction?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Our machine learning models were trained on the most comprehensive youth diabetes dataset available, achieving over 95% accuracy. However, this is a screening tool - always consult with healthcare professionals for medical diagnosis.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            Is my information stored or shared?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>No. We don't store any of your personal information. All evaluations are processed anonymously and your data is never shared with third parties.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            How are the recommendations generated?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Our generative AI creates personalized recommendations based on your specific risk factors, including diet plans, exercise schedules, and lifestyle modifications. All outputs are validated for accuracy and safety.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            Can this replace a doctor's visit?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>No. This tool is for educational and screening purposes only. It should complement, not replace, professional medical advice. Always consult healthcare providers for diagnosis and treatment.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <p class="footer">© 2026 YouthDiabetes.AI. All rights reserved.</p>
+    <p class="footer">© 2026 youthdiabetes.ai — style-only demo</p>
   </div>
 
+  <!-- mobile drawer -->
   <div id="drawer" class="drawer" aria-hidden="true">
     <div class="panel">
       <a href="/">Home</a>
       <a href="/risk">Risk</a>
       <a href="/resources">Resources</a>
       <a href="/about">About</a>
+      <hr>
+      <p class="small muted">This template keeps the visual style but uses original placeholder content.</p>
     </div>
   </div>
 
-  <script src="../static/javascript/main.js"></script>
+  <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
 </body>
-
 </html>

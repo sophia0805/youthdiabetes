@@ -4,29 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Resources — youthdiabetes.ai</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <div class="container">
     <header class="header">
       <div class="brand">
-        <div class="logo"><a href="./index.html"><img src="../static/image/logo.png" alt="logo" style="width:28px;height:28px"></a></div>
+        <div class="logo"><a href="/"><img src="{{ url_for('static', filename='image/logo.png') }}" alt="logo" style="width:28px;height:28px"></a></div>
         <div class="site-title">YouthDiabetes.AI</div>
       </div>
       <nav class="nav">
-        <a href="./index.html">Home</a>
-        <a href="./risk.html">Risk</a>
-        <a href="./resources.html" class="active">Resources</a>
-        <a href="./about.html">About</a>
+        <a href="/">Home</a>
+        <a href="/risk">Risk</a>
+        <a href="/resources" class="active">Resources</a>
+        <a href="/about">About</a>
       </nav>
       <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
     </header>
-      <section class="hero fade-in">
+      <section class="hero">
         <h1>Resources for Youth Diabetes</h1>
         <p>A curated list of trusted resources to help manage and understand diabetes in children and adolescents.</p>
       </section>
 
-      <section class="hero fade-in">
+      <section class="hero">
         <h3>Statistics &amp; Data</h3>
           <p><a href="https://www.cdc.gov/diabetes/php/data-research/index.html" target="_blank" rel="noopener noreferrer">CDC National Diabetes Statistics Report</a></p>
           <p>The primary source for diabetes prevalence data in the United States, including youth-specific statistics.</p>
@@ -37,7 +37,7 @@
           <p><a href="https://www.searchfordiabetes.org/" target="_blank" rel="noopener noreferrer">SEARCH for Diabetes in Youth</a></p>
           <p>A multicenter study tracking the incidence and prevalence of diabetes in children and adolescents.</p>
       </section>
-      <section class="hero fade-in">
+      <section class="hero">
         <h3>Prediabetes &amp; Diabetes Care</h3>
           <p><a href="https://www.breakthrought1d.org/" target="_blank" rel="noopener noreferrer">Breakthrough T1D (formerly JDRF)</a></p>
           <p>Leading global organization for Type 1 diabetes research, advocacy, and support for newly diagnosed families.</p>
@@ -46,21 +46,21 @@
           <p><a href="https://magazine.medlineplus.gov/article/new-options-for-treating-type-2-diabetes-in-kids-and-teens#:~:text=NIH%20research%20focuses%20on%20prevention,and%20stress%2C%22%20she%20says." target="_blank" rel="noopener noreferrer">NIDDK - Preventing Type 2 in Kids</a></p>
           <p>National Institute of Health resources focused on pediatric prediabetes and Type 2 prevention.</p>
       </section>
-      <section class="hero fade-in">
+      <section class="hero">
         <h3>Healthy Diet &amp; Nutrition</h3>
           <p><a href="https://www.diabetesfoodhub.org/" target="_blank" rel="noopener noreferrer">ADA Diabetes Food Hub</a></p>
           <p>A comprehensive digital library of diabetes-friendly recipes and meal planning tools.</p>
           <p><a href="https://diabetes.org/healthy-eating/eating-well/diabetes-plate-method" target="_blank" rel="noopener noreferrer">The Diabetes Plate Method</a></p>
           <p>A simple, visual approach to portion control and balanced meal creation.</p>
       </section>
-      <section class="hero fade-in">
+      <section class="hero">
         <h3>Physical Activity</h3>
           <p><a href="https://diabetes.org/health-wellness/fitness" target="_blank" rel="noopener noreferrer">ADA - Fitness &amp; Diabetes</a></p>
           <p>Safety guidelines for staying active while managing blood sugar levels.</p>
           <p><a href="https://www.diabetes.org.uk/living-with-diabetes/life-with-diabetes/children-and-diabetes/physical-activity" target="_blank" rel="noopener noreferrer">Diabetes UK - Kids &amp; Activity</a></p>
           <p>Practical tips for young people on how different types of exercise affect glucose levels.</p>
       </section>
-      <section class="hero fade-in">
+      <section class="hero">
         <h3>Non-Profit Organizations &amp; Support</h3>
           <p><a href="https://thediabeteslink.org/" target="_blank" rel="noopener noreferrer">The Diabetes Link</a></p>
           <p>Peer-based support specifically for teens and young adults transitioning to college and adulthood.</p>
@@ -71,14 +71,14 @@
           <p><a href="https://diatribe.org/foundation" target="_blank" rel="noopener noreferrer">The diaTribe Foundation</a></p>
           <p>Provides insights and education to help people make sense of diabetes technology and treatment.</p>
       </section>
-    <p class="footer">© 2026 youthdiabetes.ai</p>
+    <p class="footer">© 2026 youthdiabetes.ai — style-only demo</p>
   </div>
   <div id="drawer" class="drawer"><div class="panel">
-    <a href="./index.html">Home</a>
-    <a href="./risk.html">Risk</a>
-    <a href="./resources.html">Resources</a>
-    <a href="./about.html">About</a>
+    <a href="/">Home</a>
+    <a href="/risk">Risk</a>
+    <a href="/resources">Resources</a>
+    <a href="/about">About</a>
   </div></div>
-  <script src="../static/javascript/main.js"></script>
+  <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
 </body>
 </html>
