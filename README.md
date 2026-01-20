@@ -38,7 +38,6 @@ an AI-powered web application for assessing youth diabetes risk!
 4. **create a `.env` file in the backend directory**
    ```.env
    OPENAI_API_KEY="your_openai_api_key"
-   PORT=10000
    ```
 
 5. **place model files** (if you have them)
