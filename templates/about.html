@@ -1,28 +1,34 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>About — YouthDiabetes.AI</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="static/style.css">
 </head>
-
 <body>
   <div class="container">
     <header class="header">
       <div class="brand">
-        <div class="logo"><a href="/"><img src="../static/image/logo.png" alt="logo"></a></div>
+        <div class="logo"><a href="/"><img src="static/image/logo.png" alt="logo" style="width:28px;height:28px"></a></div>
         <div class="site-title">YouthDiabetes.AI</div>
       </div>
       <nav class="nav">
-        <a href="./index.html">Home</a>
-        <a href="./risk.html">Risk</a>
-        <a href="./resources.html">Resources</a>
-        <a href="./about.html" class="active">About</a>
+        <a href="/">Home</a>
+        <a href="/risk">Risk</a>
+        <a href="/resources">Resources</a>
+        <a href="/about" class="active">About</a>
       </nav>
       <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
     </header>
+
+    <section class="hero">
+      <h1>Youth Diabetes Crisis</h1>
+      <p class="muted">Youth diabetes represents one of the most pressing public health crises facing American families today. Diabetes among youth in the United States has increased significantly over the last two decades; from 2001 to 2017, 
+        the number of youth living with Type 1 diabetes increased by 45%, while the number of youth living with Type 2 diabetes nearly doubled, increasing by 95%. If current trends continue, the number of young people with diabetes could increase as much as <strong>700%</strong> by 2060,
+        particularly for Type 2. </p>
+      <p>Most alarmingly, <strong>one in three American teenagers</strong>, ages 12-19, has prediabetes, according to CDC research. Prediabetes represents adolescents with blood glucose levels higher than usual but not yet high enough to be classified as Type 2 diabetes.  That’s over <strong>8.4 million</strong> young people on a dangerous path toward a lifetime of chronic disease!</p>
+    </section>
 
     <section class="hero">
       <h1>Our Story</h1>
@@ -37,7 +43,7 @@
 
     <section class="hero">
       <h1>Technical Approach</h1>
-      <h2>Machine Learning Risk Prediction</h2>
+      <h4>Machine Learning Risk Prediction</h4>
       <p>Our prediction model was trained on the most recent comprehensive youth diabetes dataset from Mount Sinai
         School of Medicine, released in July 2024. This dataset draws from the National Health and Nutrition Examination
         Survey (NHANES), incorporating health indicators from national surveys spanning 1999-2018 and covering over
@@ -47,7 +53,7 @@
         XGBoost, AdaBoost, Random Forest, and Logistic Regression. All models were assessed using weighted metrics to
         ensure accuracy across diverse populations.</p>
 
-      <h2>Generative AI Recommendations</h2>
+      <h4>Generative AI Recommendations</h4>
       <p>Once risk factors are identified, generative AI creates personalized daily meal plans, weekly exercise
         schedules, and practical lifestyle recommendations tailored specifically to each user's profile. The system is
         carefully engineered to provide actionable guidance while avoiding specific medical claims.</p>
@@ -65,7 +71,6 @@
       <p>YouthDiabetes.AI is designed with responsibility in mind:</p>
       <ul>
         <li><strong>Educational focus:</strong> We provide general health guidance, not medical diagnoses</li>
-        <li><strong>Validated outputs:</strong> All AI-generated content is cross-validated for accuracy</li>
         <li><strong>Complementary care:</strong> We encourage users to work with healthcare professionals</li>
         <li><strong>Accessible design:</strong> Free and easy to understand for users of all health literacy levels</li>
       </ul>
@@ -73,35 +78,14 @@
         support healthier lives without compromising safety.</p>
     </section>
 
-    <section class="hero">
-      <h2>References</h2>
-      <p class="small" style="line-height: 1.7;">
-        <a href="https://www.cdc.gov/diabetes/data/statistics-report/index.html" target="_blank"
-          rel="noopener noreferrer">1. National Diabetes Statistics Report</a> - CDC<br>
-        <a href="https://zenodo.org/records/8206576" target="_blank" rel="noopener noreferrer">2. Youth preDM/DM
-          Dataset</a> - Mount Sinai School of Medicine<br>
-        <a href="https://www.gao.gov/products/gao-24-107634" target="_blank" rel="noopener noreferrer">3. Science & Tech
-          Spotlight: Generative AI in Health Care</a> - U.S. Government Accountability Office<br>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/40510413/" target="_blank" rel="noopener noreferrer">4. Balancing risks
-          and benefits: clinicians' perspectives on the use of generative AI chatbots in mental healthcare</a> -
-        PubMed<br>
-        <a href="https://www.nationalacademies.org/news/2025/04/capturing-the-potential-of-generative-ais-use-in-health-and-medicine-requires-collaboration-and-oversight-consideration-of-risks-says-nam-special-publication"
-          target="_blank" rel="noopener noreferrer">5. Capturing the Potential of Generative AI's Use in Health and
-          Medicine</a> - National Academies of Sciences, Engineering, and Medicine
-      </p>
-    </section>
-
-    <p class="footer">© 2026 youthdiabetes.ai</p>
+    <p class="footer">© 2026 youthdiabetes.ai — style-only demo</p>
   </div>
-  <div id="drawer" class="drawer">
-    <div class="panel">
-      <a href="index.html">Home</a>
-      <a href="risk.html">Risk</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
-  <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+  <div id="drawer" class="drawer"><div class="panel">
+    <a href="/">Home</a>
+    <a href="/risk">Risk</a>
+    <a href="/resources">Resources</a>
+    <a href="/about">About</a>
+  </div></div>
+  <script src="../js/main.js"></script>
 </body>
-
 </html>

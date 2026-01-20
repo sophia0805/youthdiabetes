@@ -18,24 +18,8 @@ load_dotenv()  # Load OPENAI_API_KEY from .env
 from sklearn.linear_model import LogisticRegression
 from sklearn.base import BaseEstimator, TransformerMixin
 
-# Get the base directory (backend folder)
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(BASE_DIR)
-FRONTEND_DIR = os.path.abspath(os.path.join(PROJECT_ROOT, 'frontend'))
-STATIC_DIR = os.path.abspath(os.path.join(FRONTEND_DIR, 'static'))
-TEMPLATE_DIR = os.path.abspath(os.path.join(FRONTEND_DIR, 'pages'))
-
-# Ensure directories exist
-if not os.path.exists(STATIC_DIR):
-    raise FileNotFoundError(f"Static directory not found: {STATIC_DIR}")
-if not os.path.exists(TEMPLATE_DIR):
-    raise FileNotFoundError(f"Template directory not found: {TEMPLATE_DIR}")
-
-app = Flask(__name__, 
-            template_folder=TEMPLATE_DIR,
-            static_folder=STATIC_DIR,
-            static_url_path='/static')
-CORS(app, origins=["https://www.youthdiabetes.ai", "https://youthdiabetes.onrender.com", "http://127.0.0.1:10000"])  # Enable CORS for frontend requests
+app = Flask(__name__)
+CORS(app, origins=["https://www.youthdiabetes.ai", "https://youthdiabetes-ai.onrender.com"])  # Enable CORS for frontend requests
 
 from sklearn.preprocessing import RobustScaler
 from sklearn import preprocessing
@@ -55,41 +39,22 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 model1 = None
 
 
-# Model file path - check both locations (local and production)
-MODEL_FILE = 'youthdiabetes_logisticL1_scoring_bundle.pkl'
-MODEL_PATH = os.path.join(BASE_DIR, MODEL_FILE)
-PROD_MODEL_PATH = 'youthdiabetes_logisticL1_scoring_bundle.pkl'
-
-# Copy model to production location if it doesn't exist and we're in production
-# Only attempt if we have write permissions (production environment)
-if os.path.exists(MODEL_PATH) and not os.path.exists(PROD_MODEL_PATH):
-    try:
-        os.makedirs('/var/data', exist_ok=True)
-        shutil.copy(MODEL_PATH, PROD_MODEL_PATH)
-        print(f"Model copied to production location: {PROD_MODEL_PATH}")
-    except PermissionError:
-        # Running locally without permissions - use local model file
-        print(f"Running locally - using model from: {MODEL_PATH}")
-    except Exception as e:
-        print(f"Could not copy to production location (using local): {e}")
+if not os.path.exists('/var/data/youthdiabetes_logisticL1_scoring_bundle.pkl'):
+        shutil.copy('youthdiabetes_logisticL1_scoring_bundle.pkl', '/var/data/youthdiabetes_logisticL1_scoring_bundle.pkl')
 
 @app.route('/')
-@app.route('/index.html')
 def home():
  return render_template('index.html')
 
 @app.route('/risk')
-@app.route('/risk.html')
 def report():
  return render_template('risk.html')
 
 @app.route('/resources')
-@app.route('/resources.html')
 def contact():
  return render_template('resources.html')
 
 @app.route('/about')
-@app.route('/about.html')
 def about():
  return render_template('about.html')
 
@@ -351,11 +316,7 @@ sys.modules['__main__'].IQRClipper = IQRClipper
 sys.modules['__main__'].SafeSkewFixer = SafeSkewFixer
 # Then load your model
 
-# Load model - try production path first, fallback to local
-if os.path.exists(PROD_MODEL_PATH):
-    model1 = load_model(PROD_MODEL_PATH)
-else:
-    model1 = load_model(MODEL_PATH)
+model1 = load_model('/var/data/youthdiabetes_logisticL1_scoring_bundle.pkl')
 
 def predict(payload_4groups, prob_threshold=0.5):
     """Load existing machine learning model"""

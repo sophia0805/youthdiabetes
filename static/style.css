@@ -1,0 +1,61 @@
+/* Mobile-first responsive stylesheet (original, inspired by modern health site aesthetics) */
+:root{
+  --bg:#ffffff;
+  --text:#0f1720;
+  --muted:#6b7280;
+  --accent:#7c3aed; /* purple accent */
+  --accent-2:#06b6d4; /* teal accent */
+  --card:#f8fafc;
+  --radius:14px;
+  --max-width:900px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+  background:linear-gradient(180deg, #fff 0%, #fbfbff 100%);
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:18px}
+.header{
+  display:flex;align-items:center;justify-content:space-between;padding:8px 0;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+.site-title{
+  /* Center alignment */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hamburger{width:44px;height:44px;border-radius:10px;border:none;background:transparent;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;gap:12px}
+.nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px}
+.nav a.active{background:rgba(124,58,237,0.1);color:var(--accent)}
+/* Mobile: hide nav, show hamburger */
+.nav{display:none}
+@media(min-width:700px){
+  .nav{display:flex}
+  .hamburger{display:none}
+}
+.hero{margin-top:18px;background:linear-gradient(180deg, rgba(124,58,237,0.06), rgba(6,182,212,0.02));padding:18px;border-radius:16px;display:flex;flex-direction:column;gap:10px}
+.hero h1{margin:0;font-size:20px}
+.hero p{margin:0;color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}
+.card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 20px rgba(16,24,40,0.06)}
+.card h3{margin:0;font-size:15px}
+.card p{margin:8px 0 0;color:var(--muted);font-size:13px}
+.btn{display:inline-block;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;text-decoration:none;font-weight:600}
+.footer{margin:28px 0 60px;color:var(--muted);font-size:13px;text-align:center}
+/* small nav drawer */
+.drawer{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,32,0.5);display:none}
+.drawer .panel{position:absolute;top:0;right:0;width:280px;max-width:80%;height:100%;background:white;padding:18px;box-shadow:-10px 0 30px rgba(15,23,42,0.12)}
+.drawer .panel a{display:block;padding:12px;border-radius:10px;color:var(--text);text-decoration:none;margin-bottom:8px}
+.drawer.open{display:block}
+/* utilities */
+.small{font-size:13px;color:var(--muted)}
+.muted{color:var(--muted)}
+.center{text-align:center}
