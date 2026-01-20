@@ -20,11 +20,20 @@ from sklearn.base import BaseEstimator, TransformerMixin
 
 # Get the base directory (backend folder)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-FRONTEND_DIR = os.path.join(os.path.dirname(BASE_DIR), 'frontend')
+PROJECT_ROOT = os.path.dirname(BASE_DIR)
+FRONTEND_DIR = os.path.abspath(os.path.join(PROJECT_ROOT, 'frontend'))
+STATIC_DIR = os.path.abspath(os.path.join(FRONTEND_DIR, 'static'))
+TEMPLATE_DIR = os.path.abspath(os.path.join(FRONTEND_DIR, 'pages'))
+
+# Ensure directories exist
+if not os.path.exists(STATIC_DIR):
+    raise FileNotFoundError(f"Static directory not found: {STATIC_DIR}")
+if not os.path.exists(TEMPLATE_DIR):
+    raise FileNotFoundError(f"Template directory not found: {TEMPLATE_DIR}")
 
 app = Flask(__name__, 
-            template_folder=os.path.join(FRONTEND_DIR, 'pages'),
-            static_folder=os.path.join(FRONTEND_DIR, 'static'),
+            template_folder=TEMPLATE_DIR,
+            static_folder=STATIC_DIR,
             static_url_path='/static')
 CORS(app, origins=["https://www.youthdiabetes.ai", "https://youthdiabetes.onrender.com", "http://127.0.0.1:10000"])  # Enable CORS for frontend requests
 
